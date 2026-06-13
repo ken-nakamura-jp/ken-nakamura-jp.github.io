@@ -1,34 +1,250 @@
 ---
-layout: about
-title: about
+layout: page
+title: About
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
-
-profile:
-  align: right
-  image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
-  more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
-
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
-
-announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
-
-latest_posts:
-  enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+nav: false
+nav_order: 1
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](https://www.reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+<style>
+  :root {
+    --global-theme-color: #2563eb;
+    --global-hover-color: #1d4ed8;
+    --global-divider-color: #dbeafe;
+  }
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+  body {
+    font-family:
+      "Inter", "Aptos", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.68;
+  }
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+  #navbar {
+    border-bottom: 1px solid #dbeafe;
+    min-height: 58px;
+  }
+
+  #navbar .container {
+    min-height: 56px;
+  }
+
+  #navbar .navbar-nav .nav-link,
+  #navbar .navbar-brand {
+    color: #111827;
+    font-family:
+      "Inter", "Aptos", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500;
+  }
+
+  #navbar .navbar-brand.title {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 13rem;
+    width: 13rem;
+    font-weight: 500 !important;
+    line-height: 1.2;
+  }
+
+  #navbar .container::before {
+    content: "Ken Nakamura";
+    display: block;
+    flex: 0 0 13rem;
+    width: 13rem;
+    margin-right: 1rem;
+    color: #111827;
+    font-family:
+      "Inter", "Aptos", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: inherit;
+    white-space: nowrap;
+  }
+
+  #navbar .navbar-nav {
+    align-items: center;
+  }
+
+  #navbar .navbar-nav .nav-item {
+    text-align: center;
+  }
+
+  #navbar .navbar-nav .nav-item:nth-child(1) {
+    width: 4.6rem;
+  }
+
+  #navbar .navbar-nav .nav-item:nth-child(2) {
+    width: 8.4rem;
+  }
+
+  #navbar .navbar-nav .nav-item:nth-child(3) {
+    width: 3.2rem;
+  }
+
+  #navbar .navbar-nav .nav-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    font-weight: 500 !important;
+    line-height: 1.2;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  @media (max-width: 575.98px) {
+    #navbar .container::before {
+      flex: 0 0 auto;
+      width: auto;
+      font-size: 1.1rem;
+    }
+
+    #navbar .navbar-brand.title {
+      flex: 0 0 auto;
+      width: auto;
+    }
+
+    #navbar .navbar-nav .nav-item {
+      width: auto !important;
+      text-align: left;
+    }
+
+    #navbar .navbar-nav .nav-link {
+      padding-right: 0.5rem;
+      padding-left: 0.5rem;
+    }
+  }
+
+  #navbar .navbar-nav .nav-link:hover,
+  #navbar .navbar-nav .nav-item.active > .nav-link,
+  a {
+    color: #1d4ed8;
+  }
+
+  a:hover {
+    color: #1e40af;
+  }
+
+  .post-title,
+  .page-title,
+  h1 {
+    color: #0f172a;
+    font-weight: 500;
+  }
+
+  .post-description:empty {
+    display: none;
+  }
+
+  .research-emphasis {
+    color: #1d4ed8;
+  }
+
+  .about-list {
+    padding-left: 1.15rem;
+  }
+
+  .about-list li {
+    margin: 0.35rem 0;
+  }
+
+  .contact-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .contact-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin: 0.45rem 0;
+  }
+
+  .contact-list i {
+    width: 1.25rem;
+    color: #2563eb;
+    text-align: center;
+  }
+
+  .contact-list .fa-envelope {
+    color: #64748b;
+  }
+
+  .profile-photo {
+    float: right;
+    width: 148px;
+    max-width: 32%;
+    margin: 0.25rem 0 1rem 1.75rem;
+  }
+
+  .profile-photo img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+  }
+
+  @media (max-width: 640px) {
+    .profile-photo {
+      float: none;
+      width: 128px;
+      max-width: 45%;
+      margin: 0.25rem auto 1rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document
+      .querySelectorAll('a.nav-link[href$="/cv/"], a.nav-link[href$="ken_nakamura_cv.pdf"]')
+      .forEach(function (link) {
+        link.href = "{{ '/assets/pdf/ken_nakamura_cv.pdf' | relative_url }}";
+      });
+  });
+</script>
+
+<div class="profile-photo">
+  <img src="{{ '/assets/profile/ken_nakamura.jpg' | relative_url }}" alt="Ken Nakamura">
+</div>
+
+I am a senior-year undergraduate student in the Department of Mathematical Engineering and Information Physics, Faculty of Engineering, The University of Tokyo.
+
+My research interests are in uncovering the <strong class="research-emphasis">information-processing mechanisms of the brain</strong> and the <strong class="research-emphasis">mathematical principles underlying intelligence</strong>, including conceptual understanding and language ability. My current work studies how learned representations become predictive of human perception and brain activity.
+
+I am an undergraduate researcher in the Amano-Nakai-Nakayama Lab at The University of Tokyo, advised by Prof. Kaoru Amano and Assoc. Prof. Tomoya Nakai. I previously conducted research in the Oizumi Lab under Prof. Masafumi Oizumi. I have also worked on research internships at Georgia Institute of Technology and in the Smart Data & Knowledge Services Department at German Research Center for Artificial Intelligence (DFKI).
+
+**Research Interests**
+
+NeuroAI, model-brain alignment, representation analysis, continual learning, self-supervised learning.
+
+**Education**
+
+<ul class="about-list">
+  <li>The University of Tokyo, Faculty of Engineering, B.Eng. in Mathematical Engineering and Information Physics, Apr 2023&ndash;Mar 2027 (expected).</li>
+</ul>
+
+**Selected Fellowships and Grants**
+
+<ul class="about-list">
+  <li>MITOU IT Program, Selected Developer, Ministry of Economy, Trade and Industry (METI), Government of Japan, 2025&ndash;2026.</li>
+  <li>Nakatani Research and International Experiences for Students Fellowship Program, Nakatani Foundation / Georgia Institute of Technology, 2025.</li>
+  <li>Nakatani Advanced Research Internship Program, Nakatani Foundation, 2025.</li>
+</ul>
+
+**Selected Honors and Awards**
+
+<ul class="about-list">
+  <li>MITOU Super Creator Certification, Ministry of Economy, Trade and Industry (METI), Government of Japan, Jun 2026.</li>
+  <li>Chemistry Grand Prix, Bronze Prize, Chemical Society of Japan, Aug 2022.</li>
+</ul>
+
+**Contact**
+
+<ul class="contact-list">
+  <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>nakamuraken1007 [at] g.ecc.u-tokyo.ac.jp</span></li>
+  <li><i class="ai ai-google-scholar" aria-hidden="true"></i><a href="https://scholar.google.com/citations?user=bwohtdYAAAAJ">Google Scholar</a></li>
+  <li><i class="fa-brands fa-linkedin" aria-hidden="true"></i><a href="https://www.linkedin.com/in/ken-nakamura-jp/">LinkedIn</a></li>
+</ul>
