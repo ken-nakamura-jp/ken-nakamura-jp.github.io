@@ -1,12 +1,4 @@
 /* From https://github.com/dunovank/jupyter-themes/blob/master/jupyterthemes/styles/compiled/grade3.css */
-div#notebook {
-  font-family: sans-serif;
-  font-size: 13pt;
-  line-height: 170%;
-  color: #303030;
-  -webkit-font-smoothing: antialiased !important;
-  padding-top: 25px !important;
-}
 
 body,
 div.body {
@@ -68,12 +60,6 @@ ul#tabs a {
 .nav > li.disabled > a,
 .nav > li.disabled > a:hover {
   color: #828892;
-}
-
-div#notebook {
-  font-family: sans-serif;
-  font-size: 13pt;
-  padding-top: 4px;
 }
 
 .container {
@@ -199,8 +185,7 @@ div#notebook {
 
 .btn:hover,
 .btn:active:hover,
-.btn.active:hover,
-.open > .dropdown-toggle.btn:hover {
+.btn.active:hover {
   color: #ef5c00;
   border: 2px solid #e0e0e0;
   background-color: #e0e0e0;
@@ -215,9 +200,7 @@ div#notebook {
 .btn:active:focus,
 .btn.active:focus,
 .btn:active.focus,
-.btn.active.focus,
-.open > .dropdown-toggle.btn:focus,
-.open > .dropdown-toggle.btn.focus {
+.btn.active.focus {
   color: #ef5c00;
   border: 2px solid #e0e0e0;
   background-color: #e0e0e0 !important;
@@ -297,13 +280,6 @@ div.modal-footer > button:hover {
   border-radius: 1px;
   background-clip: padding-box;
   outline: none;
-}
-
-.modal-content h4 {
-  font-family: sans-serif;
-  font-size: 16pt;
-  color: #303030;
-  padding: 5px;
 }
 
 .modal-body {
@@ -388,7 +364,6 @@ textarea {
 HTML,
 body,
 div,
-dl,
 dt,
 ul,
 ol,
@@ -396,18 +371,13 @@ li,
 h1,
 h2,
 h3,
-h4,
-h5,
-h6,
 pre,
 code,
 form,
-legend,
 input,
 button,
 textarea,
 p,
-blockquote,
 th,
 td,
 span,
@@ -486,13 +456,6 @@ pre {
   border-radius: 2px;
 }
 
-hr {
-  margin-top: 8px;
-  margin-bottom: 10px;
-  border: 0;
-  border-top: 1px solid #126dce;
-}
-
 #complete > select > option:hover {
   background: #d4d4d4;
   background-color: #d4d4d4;
@@ -510,30 +473,7 @@ hr {
   z-index: 10;
 }
 
-mark,
-.mark {
-  background-color: #ffffff;
-  color: #353535;
-  padding: 0.15em;
-}
 
-#toc a,
-.toc {
-  color: #303030 !important;
-  font-size: 11pt !important;
-}
-
-#toc li > span:hover {
-  background-color: #d4d4d4 !important;
-}
-
-#toc a:hover,
-.toc {
-  color: #1c1c1c !important;
-  font-size: 11pt !important;
-}
-
-audio,
 video {
   display: inline;
   vertical-align: middle;
