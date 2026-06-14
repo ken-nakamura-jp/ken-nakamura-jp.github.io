@@ -148,19 +148,22 @@ nav_order: 1
     margin: 0.35rem 0;
   }
 
-  .contact-list {
+  .contact-list,
+  .links-list {
     list-style: none;
     padding-left: 0;
   }
 
-  .contact-list li {
+  .contact-list li,
+  .links-list li {
     display: flex;
     align-items: center;
     gap: 0.55rem;
     margin: 0.45rem 0;
   }
 
-  .contact-list i {
+  .contact-list i,
+  .links-list i {
     width: 1.25rem;
     color: #2563eb;
     text-align: center;
@@ -202,6 +205,8 @@ nav_order: 1
       .querySelectorAll('a.nav-link[href$="/cv/"], a.nav-link[href$="ken_nakamura_cv.pdf"]')
       .forEach(function (link) {
         link.href = "{{ '/assets/pdf/ken_nakamura_cv.pdf' | relative_url }}";
+        link.target = "_blank";
+        link.rel = "noopener";
       });
   });
 </script>
@@ -245,6 +250,12 @@ NeuroAI, model-brain alignment, representation analysis, continual learning, sel
 
 <ul class="contact-list">
   <li><i class="fa-solid fa-envelope" aria-hidden="true"></i><span>nakamuraken1007 [at] g.ecc.u-tokyo.ac.jp</span></li>
+</ul>
+
+**Links**
+
+<ul class="links-list">
   <li><i class="ai ai-google-scholar" aria-hidden="true"></i><a href="https://scholar.google.com/citations?user=bwohtdYAAAAJ">Google Scholar</a></li>
   <li><i class="fa-brands fa-linkedin" aria-hidden="true"></i><a href="https://www.linkedin.com/in/ken-nakamura-jp/">LinkedIn</a></li>
+  <li><i class="fa-brands fa-github" aria-hidden="true"></i><a href="https://github.com/nken-eccs">GitHub</a></li>
 </ul>

@@ -119,6 +119,8 @@ nav_order: 2
       .querySelectorAll('a.nav-link[href$="/cv/"], a.nav-link[href$="ken_nakamura_cv.pdf"]')
       .forEach(function (link) {
         link.href = "{{ '/assets/pdf/ken_nakamura_cv.pdf' | relative_url }}";
+        link.target = "_blank";
+        link.rel = "noopener";
       });
   });
 </script>
