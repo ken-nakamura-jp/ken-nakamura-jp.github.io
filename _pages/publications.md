@@ -14,6 +14,12 @@ nav_order: 2
     --global-divider-color: #dbeafe;
   }
 
+  html[data-theme="dark"] {
+    --global-theme-color: #60a5fa;
+    --global-hover-color: #93c5fd;
+    --global-divider-color: #334155;
+  }
+
   body {
     font-family:
       "Inter", "Aptos", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
@@ -22,7 +28,7 @@ nav_order: 2
   }
 
   #navbar {
-    border-bottom: 1px solid #dbeafe;
+    border-bottom: 1px solid var(--global-divider-color);
     min-height: 58px;
   }
 
@@ -32,7 +38,7 @@ nav_order: 2
 
   #navbar .navbar-nav .nav-link,
   #navbar .navbar-brand {
-    color: #111827;
+    color: var(--global-text-color);
     font-family:
       "Inter", "Aptos", "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
     font-weight: 500;
@@ -64,7 +70,7 @@ nav_order: 2
   }
 
   #navbar .navbar-nav .nav-item:nth-child(3) {
-    width: 3.2rem;
+    width: 4.2rem;
   }
 
   #navbar .navbar-nav .nav-link {
@@ -98,18 +104,26 @@ nav_order: 2
   #navbar .navbar-nav .nav-link:hover,
   #navbar .navbar-nav .nav-item.active > .nav-link,
   a {
-    color: #1d4ed8;
+    color: var(--global-theme-color);
   }
 
   a:hover {
-    color: #1e40af;
+    color: var(--global-hover-color);
   }
 
   .post-title,
   .page-title,
   h1 {
-    color: #0f172a;
+    color: var(--global-text-color);
     font-weight: 500;
+  }
+
+  .cv-external-icon {
+    margin-left: 0.32rem;
+    color: inherit;
+    font-size: 0.66em;
+    line-height: 1;
+    transform: translateY(-0.08rem);
   }
 </style>
 
@@ -120,7 +134,15 @@ nav_order: 2
       .forEach(function (link) {
         link.href = "{{ '/assets/pdf/ken_nakamura_cv.pdf' | relative_url }}";
         link.target = "_blank";
-        link.rel = "noopener";
+        link.rel = "noopener noreferrer";
+        link.title = "Open CV in a new tab";
+
+        if (!link.querySelector(".cv-external-icon")) {
+          const icon = document.createElement("i");
+          icon.className = "fa-solid fa-arrow-up-right-from-square cv-external-icon";
+          icon.setAttribute("aria-hidden", "true");
+          link.appendChild(icon);
+        }
       });
   });
 </script>
