@@ -239,13 +239,13 @@ nav_order: 1
 
 I am a senior-year undergraduate student in the Department of Mathematical Engineering and Information Physics, Faculty of Engineering, The University of Tokyo.
 
-My research interests are in uncovering the <strong class="research-emphasis">information-processing mechanisms of the brain</strong> and the <strong class="research-emphasis">mathematical principles underlying intelligence</strong>, including conceptual understanding and language ability. My current work studies how learned representations become predictive of human perception and brain activity.
+My research interests are in understanding <strong class="research-emphasis">how human cognition and conceptual understanding arise</strong>, and the <strong class="research-emphasis">mathematical principles by which symbolic systems such as language emerge</strong> and become grounded. My current work studies how learned representations become predictive of human perception and brain activity, using model-brain alignment and representation analysis as tools for probing these questions.
 
 I am an undergraduate researcher in the Amano-Nakai-Nakayama Lab at The University of Tokyo, advised by Prof. Kaoru Amano and Assoc. Prof. Tomoya Nakai. I previously conducted research in the Oizumi Lab under Prof. Masafumi Oizumi. I have also worked on research internships at Georgia Institute of Technology and in the Smart Data & Knowledge Services Department at German Research Center for Artificial Intelligence (DFKI).
 
 **Research Interests**
 
-NeuroAI, model-brain alignment, representation analysis, continual learning, self-supervised learning.
+human cognition, conceptual understanding, language and symbol emergence, NeuroAI, model-brain alignment, representation analysis, self-supervised learning.
 
 **Education**
 
