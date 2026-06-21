@@ -239,13 +239,13 @@ nav_order: 1
 
 I am a senior-year undergraduate student in the Department of Mathematical Engineering and Information Physics, Faculty of Engineering, The University of Tokyo.
 
-My research interests are in understanding <strong class="research-emphasis">how human cognition and conceptual understanding arise</strong>, how perception, concepts, and symbols interact to form intelligence, and the <strong class="research-emphasis">mathematical principles underlying intelligence</strong>, including how symbolic systems such as language emerge and become grounded. My current work studies how learned representations become predictive of human perception and brain activity, using model-brain alignment and representation analysis as tools for probing these questions.
+My research interests are in understanding <strong class="research-emphasis">the mechanisms underlying human cognition and conceptual understanding</strong>, how symbolic systems such as language emerge and become grounded, and the <strong class="research-emphasis">mathematical principles by which perception, concepts, and symbols form intelligence</strong>. My current work studies how learned representations become predictive of human perception and brain activity, using model-brain alignment and representation analysis as tools for probing these questions.
 
 I am an undergraduate researcher in the Amano-Nakai-Nakayama Lab at The University of Tokyo, advised by Prof. Kaoru Amano and Assoc. Prof. Tomoya Nakai. I previously conducted research in the Oizumi Lab under Prof. Masafumi Oizumi. I have also worked on research internships at Georgia Institute of Technology and in the Smart Data & Knowledge Services Department at German Research Center for Artificial Intelligence (DFKI).
 
 **Research Interests**
 
-human cognition, conceptual understanding, principles of intelligence, language and symbol emergence, NeuroAI, model-brain alignment, representation analysis, self-supervised learning.
+human cognition, conceptual understanding, language and symbol emergence, principles of intelligence, NeuroAI, model-brain alignment, representation analysis, self-supervised learning.
 
 **Education**
 
