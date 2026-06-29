@@ -290,8 +290,13 @@ nav_order: 1
     margin: 0 auto;
   }
 
+  .profile-photo picture {
+    display: block;
+  }
+
   .profile-photo img {
     width: 100%;
+    height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
     border: 1px solid var(--global-divider-color);
@@ -650,7 +655,10 @@ nav_order: 1
     <h1 class="hero-name">Ken Nakamura</h1>
     <div class="profile-panel profile-panel-mobile" aria-label="Profile photo">
       <div class="profile-photo">
-        <img src="{{ '/assets/profile/ken_nakamura.jpg' | relative_url }}" alt="Ken Nakamura">
+        <picture>
+          <source srcset="{{ '/assets/profile/ken_nakamura.webp' | relative_url }}" type="image/webp">
+          <img src="{{ '/assets/profile/ken_nakamura.jpg' | relative_url }}" alt="Ken Nakamura" width="220" height="220" decoding="async" fetchpriority="high">
+        </picture>
       </div>
     </div>
     <p class="hero-subtitle">Undergraduate Researcher | The University of Tokyo</p>
@@ -669,7 +677,10 @@ nav_order: 1
 
   <aside class="profile-panel profile-panel-desktop" aria-label="Profile">
     <div class="profile-photo">
-      <img src="{{ '/assets/profile/ken_nakamura.jpg' | relative_url }}" alt="Ken Nakamura">
+      <picture>
+        <source srcset="{{ '/assets/profile/ken_nakamura.webp' | relative_url }}" type="image/webp">
+        <img src="{{ '/assets/profile/ken_nakamura.jpg' | relative_url }}" alt="Ken Nakamura" width="220" height="220" decoding="async" fetchpriority="high">
+      </picture>
     </div>
   </aside>
 </div>
