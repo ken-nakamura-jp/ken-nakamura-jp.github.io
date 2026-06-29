@@ -119,9 +119,27 @@ nav_order: 2
   }
 
   #navbar #light-toggle i {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     width: 1rem;
     height: 1rem;
+    font-family: inherit;
+    font-style: normal;
     line-height: 1;
+  }
+
+  html[data-theme-setting="system"] #navbar #light-toggle-system,
+  html[data-theme-setting="dark"] #navbar #light-toggle-dark,
+  html[data-theme-setting="light"] #navbar #light-toggle-light {
+    display: inline-flex;
+  }
+
+  #navbar #light-toggle .theme-toggle-icon {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
   }
 
   #navbar #light-toggle:hover {
@@ -304,16 +322,40 @@ nav_order: 2
   }
 
   .cv-external-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-left: 0.32rem;
     color: inherit;
     font-size: 0.66em;
     line-height: 1;
     transform: translateY(-0.08rem);
   }
+
+  .cv-external-icon::before {
+    content: "\2197";
+  }
 </style>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    const themeIcons = {
+      "light-toggle-system":
+        '<svg class="theme-toggle-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 15A7 7 0 1 0 8 1v14Zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16Z"></path></svg>',
+      "light-toggle-dark":
+        '<svg class="theme-toggle-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278Z"></path></svg>',
+      "light-toggle-light":
+        '<svg class="theme-toggle-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0-12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0Zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13Zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5ZM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8Zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0Zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0Zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707ZM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708Z"></path></svg>',
+    };
+
+    Object.keys(themeIcons).forEach(function (id) {
+      const icon = document.getElementById(id);
+      if (icon) {
+        icon.removeAttribute("class");
+        icon.innerHTML = themeIcons[id];
+      }
+    });
+
     document
       .querySelectorAll('a.nav-link[href$="/cv/"], a.nav-link[href$="ken_nakamura_cv.pdf"]')
       .forEach(function (link) {
@@ -323,8 +365,8 @@ nav_order: 2
         link.title = "Open CV in a new tab";
 
         if (!link.querySelector(".cv-external-icon")) {
-          const icon = document.createElement("i");
-          icon.className = "fa-solid fa-arrow-up-right-from-square cv-external-icon";
+          const icon = document.createElement("span");
+          icon.className = "cv-external-icon";
           icon.setAttribute("aria-hidden", "true");
           link.appendChild(icon);
         }

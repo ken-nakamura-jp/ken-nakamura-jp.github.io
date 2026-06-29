@@ -135,9 +135,27 @@ nav_order: 1
   }
 
   #navbar #light-toggle i {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: relative;
     width: 1rem;
     height: 1rem;
+    font-family: inherit;
+    font-style: normal;
     line-height: 1;
+  }
+
+  html[data-theme-setting="system"] #navbar #light-toggle-system,
+  html[data-theme-setting="dark"] #navbar #light-toggle-dark,
+  html[data-theme-setting="light"] #navbar #light-toggle-light {
+    display: inline-flex;
+  }
+
+  #navbar #light-toggle .theme-toggle-icon {
+    width: 1rem;
+    height: 1rem;
+    fill: currentColor;
   }
 
   #navbar #light-toggle:hover {
@@ -245,11 +263,42 @@ nav_order: 1
   }
 
   .cv-external-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     margin-left: 0.32rem;
     color: inherit;
     font-size: 0.66em;
     line-height: 1;
     transform: translateY(-0.08rem);
+  }
+
+  .cv-external-icon::before {
+    content: "\2197";
+  }
+
+  .site-icon-sprite {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .site-icon {
+    flex: 0 0 auto;
+    width: 1rem;
+    height: 1rem;
+    color: currentColor;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .site-icon-fill {
+    fill: currentColor;
+    stroke: none;
   }
 
   .about-hero {
@@ -324,11 +373,11 @@ nav_order: 1
     gap: 0.5rem;
   }
 
-  .quick-contact i {
+  .quick-contact .site-icon {
     color: var(--global-theme-color);
   }
 
-  .quick-contact .fa-envelope {
+  .quick-contact .site-icon-mail {
     color: #64748b;
   }
 
@@ -376,7 +425,9 @@ nav_order: 1
     box-shadow: 0 0 0 6px var(--global-bg-color, #fff);
   }
 
-  .timeline-icon i {
+  .timeline-icon .site-icon {
+    width: 0.92rem;
+    height: 0.92rem;
     font-size: 0.92rem;
   }
 
@@ -601,7 +652,9 @@ nav_order: 1
       transform: translateY(calc((31px - 100%) / 2));
     }
 
-    .timeline-icon i {
+    .timeline-icon .site-icon {
+      width: 0.82rem;
+      height: 0.82rem;
       font-size: 0.82rem;
     }
 
@@ -631,6 +684,23 @@ nav_order: 1
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    const themeIcons = {
+      "light-toggle-system":
+        '<svg class="theme-toggle-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 15A7 7 0 1 0 8 1v14Zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16Z"></path></svg>',
+      "light-toggle-dark":
+        '<svg class="theme-toggle-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278Z"></path></svg>',
+      "light-toggle-light":
+        '<svg class="theme-toggle-icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Zm0-12a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0Zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13Zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5ZM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8Zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0Zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0Zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707ZM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708Z"></path></svg>',
+    };
+
+    Object.keys(themeIcons).forEach(function (id) {
+      const icon = document.getElementById(id);
+      if (icon) {
+        icon.removeAttribute("class");
+        icon.innerHTML = themeIcons[id];
+      }
+    });
+
     document
       .querySelectorAll('a.nav-link[href$="/cv/"], a.nav-link[href$="ken_nakamura_cv.pdf"]')
       .forEach(function (link) {
@@ -640,14 +710,59 @@ nav_order: 1
         link.title = "Open CV in a new tab";
 
         if (!link.querySelector(".cv-external-icon")) {
-          const icon = document.createElement("i");
-          icon.className = "fa-solid fa-arrow-up-right-from-square cv-external-icon";
+          const icon = document.createElement("span");
+          icon.className = "cv-external-icon";
           icon.setAttribute("aria-hidden", "true");
           link.appendChild(icon);
         }
       });
   });
 </script>
+
+<svg class="site-icon-sprite" aria-hidden="true" focusable="false">
+  <symbol id="site-icon-mail" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+    <path d="m3 7 9 6 9-6"></path>
+  </symbol>
+  <symbol id="site-icon-linkedin" viewBox="0 0 24 24">
+    <rect class="site-icon-fill" x="3" y="9" width="4" height="12"></rect>
+    <circle class="site-icon-fill" cx="5" cy="5" r="2"></circle>
+    <path class="site-icon-fill" d="M10 9h4v1.8A4.7 4.7 0 0 1 18 8.8c2.8 0 4 1.8 4 5.1V21h-4v-6.5c0-1.5-.5-2.3-1.7-2.3S14 13 14 14.6V21h-4V9Z"></path>
+  </symbol>
+  <symbol id="site-icon-scholar" viewBox="0 0 24 24">
+    <path d="m2 10 10-6 10 6-10 6-10-6Z"></path>
+    <path d="M6 12.5V17c3.2 2.2 8.8 2.2 12 0v-4.5"></path>
+  </symbol>
+  <symbol id="site-icon-graduation" viewBox="0 0 24 24">
+    <path d="m2 10 10-6 10 6-10 6-10-6Z"></path>
+    <path d="M6 12.5V17c3.2 2.2 8.8 2.2 12 0v-4.5"></path>
+  </symbol>
+  <symbol id="site-icon-award" viewBox="0 0 24 24">
+    <circle cx="12" cy="8" r="5"></circle>
+    <path d="m8.7 12.4-2 8.6 5.3-3 5.3 3-2-8.6"></path>
+  </symbol>
+  <symbol id="site-icon-trophy" viewBox="0 0 24 24">
+    <path d="M8 4h8v5a4 4 0 0 1-8 0V4Z"></path>
+    <path d="M8 6H4a3 3 0 0 0 4 3"></path>
+    <path d="M16 6h4a3 3 0 0 1-4 3"></path>
+    <path d="M12 13v5"></path>
+    <path d="M8 21h8"></path>
+  </symbol>
+  <symbol id="site-icon-link" viewBox="0 0 24 24">
+    <path d="M10 13a5 5 0 0 0 7.1 0l2-2a5 5 0 0 0-7.1-7.1l-1.1 1.1"></path>
+    <path d="M14 11a5 5 0 0 0-7.1 0l-2 2A5 5 0 0 0 12 20.1l1.1-1.1"></path>
+  </symbol>
+  <symbol id="site-icon-github" viewBox="0 0 24 24">
+    <path d="M15 22v-3.4a3.4 3.4 0 0 0-.9-2.6c3-.3 6.1-1.5 6.1-6.7A5.2 5.2 0 0 0 18.8 5a4.8 4.8 0 0 0-.1-3.4s-1.1-.3-3.5 1.3a12 12 0 0 0-6.4 0C6.4 1.3 5.3 1.6 5.3 1.6A4.8 4.8 0 0 0 5.2 5a5.2 5.2 0 0 0-1.4 4.3c0 5.2 3.1 6.4 6.1 6.7a3.4 3.4 0 0 0-.9 2.6V22"></path>
+    <path d="M9 19c-3.3 1-3.3-1.7-4.6-2"></path>
+  </symbol>
+  <symbol id="site-icon-file" viewBox="0 0 24 24">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"></path>
+    <path d="M14 2v6h6"></path>
+    <path d="M8 13h8"></path>
+    <path d="M8 17h5"></path>
+  </symbol>
+</svg>
 
 <div class="about-hero">
   <div class="about-copy">
@@ -668,9 +783,9 @@ nav_order: 1
     <p>I am an undergraduate researcher in the Amano-Nakai-Nakayama Lab at The University of Tokyo, advised by Prof. Kaoru Amano and Assoc. Prof. Tomoya Nakai. I previously conducted research in the Oizumi Lab under Prof. Masafumi Oizumi. I have also worked on research internships at Georgia Institute of Technology and in the Smart Data &amp; Knowledge Services Department at German Research Center for Artificial Intelligence (DFKI).</p>
 
     <div class="quick-contact" aria-label="Contact and profile links">
-      <span><i class="fa-solid fa-envelope" aria-hidden="true"></i>nakamuraken1007 [at] g.ecc.u-tokyo.ac.jp</span>
-      <a href="https://www.linkedin.com/in/ken-nakamura-jp/"><i class="fa-brands fa-linkedin" aria-hidden="true"></i>LinkedIn</a>
-      <a href="https://scholar.google.com/citations?user=bwohtdYAAAAJ"><i class="ai ai-google-scholar" aria-hidden="true"></i>Google Scholar</a>
+      <span><svg class="site-icon site-icon-mail" aria-hidden="true"><use href="#site-icon-mail"></use></svg>nakamuraken1007 [at] g.ecc.u-tokyo.ac.jp</span>
+      <a href="https://www.linkedin.com/in/ken-nakamura-jp/"><svg class="site-icon" aria-hidden="true"><use href="#site-icon-linkedin"></use></svg>LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=bwohtdYAAAAJ"><svg class="site-icon" aria-hidden="true"><use href="#site-icon-scholar"></use></svg>Google Scholar</a>
     </div>
 
   </div>
@@ -687,7 +802,7 @@ nav_order: 1
 
 <div class="resume-timeline">
   <section class="timeline-section">
-    <div class="timeline-icon"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>
+    <div class="timeline-icon"><svg class="site-icon" aria-hidden="true"><use href="#site-icon-graduation"></use></svg></div>
     <div class="timeline-label">Education</div>
     <div class="timeline-content">
       <div class="timeline-row">
@@ -702,7 +817,7 @@ nav_order: 1
   </section>
 
   <section class="timeline-section">
-    <div class="timeline-icon"><i class="fa-solid fa-award" aria-hidden="true"></i></div>
+    <div class="timeline-icon"><svg class="site-icon" aria-hidden="true"><use href="#site-icon-award"></use></svg></div>
     <div class="timeline-label">Selected<br>Fellowships<br>and Grants</div>
     <div class="timeline-content">
       <div class="timeline-row">
@@ -733,7 +848,7 @@ nav_order: 1
   </section>
 
   <section class="timeline-section">
-    <div class="timeline-icon"><i class="fa-solid fa-trophy" aria-hidden="true"></i></div>
+    <div class="timeline-icon"><svg class="site-icon" aria-hidden="true"><use href="#site-icon-trophy"></use></svg></div>
     <div class="timeline-label">Honors<br>&amp; Awards</div>
     <div class="timeline-content">
       <div class="timeline-row">
@@ -756,14 +871,14 @@ nav_order: 1
   </section>
 
   <section class="timeline-section">
-    <div class="timeline-icon"><i class="fa-solid fa-link" aria-hidden="true"></i></div>
+    <div class="timeline-icon"><svg class="site-icon" aria-hidden="true"><use href="#site-icon-link"></use></svg></div>
     <div class="timeline-label">Links</div>
     <div class="timeline-content">
       <div class="timeline-links">
-        <a href="https://github.com/nken-eccs"><i class="fa-brands fa-github" aria-hidden="true"></i>GitHub</a>
-        <a href="https://scholar.google.com/citations?user=bwohtdYAAAAJ"><i class="ai ai-google-scholar" aria-hidden="true"></i>Google Scholar</a>
-        <a href="https://www.linkedin.com/in/ken-nakamura-jp/"><i class="fa-brands fa-linkedin" aria-hidden="true"></i>LinkedIn</a>
-        <a href="{{ '/assets/pdf/ken_nakamura_cv.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>CV (PDF)</a>
+        <a href="https://github.com/nken-eccs"><svg class="site-icon" aria-hidden="true"><use href="#site-icon-github"></use></svg>GitHub</a>
+        <a href="https://scholar.google.com/citations?user=bwohtdYAAAAJ"><svg class="site-icon" aria-hidden="true"><use href="#site-icon-scholar"></use></svg>Google Scholar</a>
+        <a href="https://www.linkedin.com/in/ken-nakamura-jp/"><svg class="site-icon" aria-hidden="true"><use href="#site-icon-linkedin"></use></svg>LinkedIn</a>
+        <a href="{{ '/assets/pdf/ken_nakamura_cv.pdf' | relative_url }}" target="_blank" rel="noopener noreferrer"><svg class="site-icon" aria-hidden="true"><use href="#site-icon-file"></use></svg>CV (PDF)</a>
       </div>
     </div>
   </section>

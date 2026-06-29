@@ -515,13 +515,13 @@ third_party_libraries:
     integrity:
       css: "sha256-MVopmdyC2tYTiJ8wlktf0uh0v4NgT+vNdyVFepi7Q0c="
     url:
-      css: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@{{version}}/css/all.min.css"
+      css: ""
     version: "7.2.0"
   academicons:
     integrity:
       css: "sha256-SzrCOBJbGVFMahewkgjwnApaV2+av1DwMAA+/QGLyZw="
     url:
-      css: "https://cdn.jsdelivr.net/npm/academicons@{{version}}/css/academicons.min.css"
+      css: ""
     version: "1.9.5"
   chartjs:
     integrity:
@@ -662,7 +662,7 @@ third_party_libraries:
     integrity:
       css: "sha256-VY3hHVj/hNX3fYG6wtbA6TcKJQl7+FthzGSyIB64klY="
     url:
-      css: "https://cdn.jsdelivr.net/npm/scholar-icons@{{version}}/css/scholar-icons.css"
+      css: ""
     version: "1.0.3"
   vanilla-back-to-top:
     integrity:
