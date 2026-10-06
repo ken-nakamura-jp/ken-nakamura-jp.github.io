@@ -1,0 +1,53 @@
+name: Ken Nakamura
+role: Undergraduate researcher
+affiliation: The University of Tokyo
+portrait: /assets/profile/ken_nakamura.webp
+cv: /assets/pdf/ken_nakamura_cv.pdf
+cv_letter: /assets/pdf/ken_nakamura_cv_letter.pdf
+links:
+  - label: Email
+    icon: mail
+    url: mailto:nakamuraken1007@g.ecc.u-tokyo.ac.jp
+  - label: Google Scholar
+    mobile_label: Scholar
+    icon: scholar
+    url: https://scholar.google.com/citations?user=bwohtdYAAAAJ
+  - label: GitHub
+    icon: github
+    url: https://github.com/nken-eccs
+  - label: LinkedIn
+    icon: linkedin
+    url: https://www.linkedin.com/in/ken-nakamura-jp/
+
+research_focus:
+  - I study how artificial neural networks and biological brains acquire and organize internal representations through learning.
+  - I seek to understand what makes these representations efficient and robust for specific problems, and how the brain’s dynamic information-processing mechanisms can inform computational architectures.
+
+education:
+  - institution: The University of Tokyo
+    dates: "Apr 2023–Present · Expected graduation: March 2027"
+    degree: B.Eng., Mathematical Engineering and Information Physics
+    faculty: Faculty of Engineering
+
+research_visits:
+  - institution: DFKI
+    role: Guest Researcher
+    dates: Feb–Apr 2026
+    group: Smart Data & Knowledge Services
+    location: Kaiserslautern, Germany
+  - institution: Georgia Tech
+    role: Visiting Research Fellow
+    dates: Aug–Sep 2025
+    group: Sulchek BioMEMS and Biomechanics Lab
+    location: Atlanta, GA, USA
+
+honors:
+  - year: 2026
+    title: MITOU Super Creator Certification, METI
+    organization: Ministry of Economy, Trade and Industry (METI), Japan
+  - year: 2025
+    title: Nakatani Advanced Research Internship Program
+    organization: Nakatani Foundation
+  - year: 2025
+    title: Nakatani Research and International Experiences for Students Fellowship Program
+    organization: Nakatani Foundation / Georgia Tech

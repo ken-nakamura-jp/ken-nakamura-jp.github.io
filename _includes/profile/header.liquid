@@ -1,0 +1,21 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="site-brand" href="{{ '/' | relative_url }}">{{ site.data.profile.name | escape }}</a>
+    <nav aria-label="Main navigation">
+      <a
+        href="{{ '/' | relative_url }}"
+        {% if page.url == '/' %}
+          aria-current="page"
+        {% endif %}
+        >Home</a
+      >
+      <a
+        href="{{ '/publications/' | relative_url }}"
+        {% if page.url == '/publications/' %}
+          aria-current="page"
+        {% endif %}
+        >Publications</a
+      >
+    </nav>
+  </div>
+</header>

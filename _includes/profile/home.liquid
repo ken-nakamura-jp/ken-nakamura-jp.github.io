@@ -1,0 +1,53 @@
+{% assign profile = site.data.profile %}
+<section class="home-section" aria-labelledby="research-heading">
+  <h2 id="research-heading">Research Focus</h2>
+  <div class="research-copy">
+    {% for paragraph in profile.research_focus %}
+      <p>{{ paragraph | escape }}</p>
+    {% endfor %}
+  </div>
+</section>
+<section class="home-section" aria-labelledby="education-heading">
+  <h2 id="education-heading">Education</h2>
+  {% for education in profile.education %}
+    <div class="education">
+      <p class="dates">{{ education.dates | escape }}</p>
+      <h3>{{ education.institution | escape }}</h3>
+      <p>
+        {{ education.degree | escape -}}
+        <br>
+        {{ education.faculty | escape }}
+      </p>
+    </div>
+  {% endfor %}
+</section>
+<section class="home-section" aria-labelledby="visits-heading">
+  <h2 id="visits-heading">Research Visits</h2>
+  <div class="research-visits">
+    {% for visit in profile.research_visits %}
+      <div>
+        <h3>{{ visit.institution | escape }}</h3>
+        <p>{{ visit.role | escape }} · {{ visit.dates | escape }}</p>
+        <p>
+          {{ visit.group | escape -}}
+          <br>
+          {{ visit.location | escape }}
+        </p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+<section class="home-section" aria-labelledby="honors-heading">
+  <h2 id="honors-heading">Honors &amp; Fellowships</h2>
+  <div class="honors">
+    {% for honor in profile.honors %}
+      <div class="honor">
+        <time datetime="{{ honor.year }}">{{ honor.year }}</time>
+        <div>
+          <h3>{{ honor.title | escape }}</h3>
+          <p>{{ honor.organization | escape }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>

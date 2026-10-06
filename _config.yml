@@ -8,7 +8,7 @@ middle_name:
 last_name: Nakamura
 contact_note:
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Personal website of Ken Nakamura.
+  Ken Nakamura, undergraduate researcher at The University of Tokyo. Research on learning, internal representations, and brain-inspired computational architectures.
 footer_text:
 keywords: # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
@@ -373,7 +373,7 @@ scholar:
 
   source: /_bibliography/
   bibliography: papers.bib
-  bibliography_template: bib
+  bibliography_template: profile-bib
   # Note: if you have latex math in your bibtex, the latex filter
   # preprocessing may conflict with MathJAX if the latter is enabled.
   # See https://github.com/alshedivat/al-folio/issues/357.
@@ -386,7 +386,9 @@ scholar:
   details_link: Details
 
   query: "@*"
-  group_by: year
+  group_by: none
+  sort_by: year
+  order: descending
   group_order: descending
 
 # Display different badges withs stats for your publications
