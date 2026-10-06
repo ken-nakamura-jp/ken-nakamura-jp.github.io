@@ -1,0 +1,31 @@
+{% assign profile = site.data.profile %}
+<aside class="profile" aria-label="About {{ profile.name | escape }}">
+  <div class="profile-identity">
+    {% if page.url == '/' %}
+      <h1 class="profile-name">{{ profile.name | escape }}</h1>
+    {% else %}
+      <p class="profile-name">{{ profile.name | escape }}</p>
+    {% endif %}
+    <p class="profile-role">
+      {{ profile.role | escape -}}
+      <br>
+      {{ profile.affiliation | escape }}
+    </p>
+    <div class="profile-links" aria-label="Contact and profile links">
+      <a class="cv-button" href="{{ profile.cv | relative_url }}">CV (PDF)</a>
+      {% for link in profile.links %}
+        {% assign icon_path = 'profile/icons/' | append: link.icon | append: '.liquid' %}
+        <a href="{{ link.url | escape }}" aria-label="{{ link.label | escape }}">
+          {% include {{ icon_path }} %}
+          {% if link.mobile_label %}
+            <span class="desktop-label">{{ link.label | escape }}</span>
+            <span class="mobile-label" aria-hidden="true">{{ link.mobile_label | escape }}</span>
+          {% else -%}
+            <span>{{ link.label | escape }}</span>
+          {%- endif %}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  <img class="profile-photo" src="{{ profile.portrait | relative_url }}" width="128" height="128" alt="Ken Nakamura" fetchpriority="high">
+</aside>

@@ -1,0 +1,31 @@
+---
+---
+<span class="citation" id="{{ entry.key }}">
+  {%- for author in entry.author_array -%}
+    {%- unless forloop.first -%}
+      {% if forloop.last %}, &amp; {% else %}, {% endif %}
+    {%- endunless -%}
+    {%- assign self_author = false -%}
+    {%- if site.scholar.last_name contains author.last and site.scholar.first_name contains author.first -%}
+      {%- assign self_author = true -%}
+    {%- endif -%}
+    {%- if self_author -%}<strong>{%- endif -%}
+    {{- author.last | escape -}}
+    , {{ author.first | regex_replace: '([[:alpha:]])[[:alpha:]]*\.?', '\1.' | escape }}
+    {%- if self_author -%}</strong>{%- endif -%}
+  {%- endfor %}
+  ({{ entry.year }}). {{ entry.title }}.
+  {% if entry.archiveprefix == 'arXiv' %}
+    <em>arXiv preprint</em>, <a href="https://arxiv.org/abs/{{ entry.eprint }}">arXiv:{{ entry.eprint }}</a>.
+  {% else %}
+    <em>{{ entry.journal | default: entry.booktitle }}</em>
+    {%- if entry.volume %}, {{ entry.volume }}{% endif -%}
+    {%- if entry.pages %}, {{ entry.pages }}{% endif %}.
+    {% if entry.doi -%}
+      <a href="https://doi.org/{{ entry.doi }}">doi:{{ entry.doi }}</a>.
+    {%- elsif entry.html -%}
+      <a href="{{ entry.html }}">Link</a>.
+    {%- endif %}
+  {% endif %}
+  {% if entry.note %}{{ entry.note | regex_replace: '\.?$', '.' }}{% endif %}
+</span>

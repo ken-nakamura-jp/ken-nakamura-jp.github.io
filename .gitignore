@@ -1,5 +1,6 @@
 _site
 .bundle
+.DS_Store
 .DS_store
 .idea
 .jekyll-cache
@@ -11,7 +12,7 @@ _site
 assets/libs/
 assets/rendercv/rendercv_output/*.typ
 al-folio-upgrade-report.md
-node_modules/
+node_modules
 output/playwright/
 test-results/
 vendor

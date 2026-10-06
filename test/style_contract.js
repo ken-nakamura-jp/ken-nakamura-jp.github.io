@@ -61,7 +61,19 @@ if (/gem 'al_math',\s*:git =>/.test(gemfile)) {
   failures.push("`Gemfile` must not use git-branch pin for `al_math`; use released gem version.");
 }
 
-for (const forbiddenPath of ["_includes", "_layouts", "_sass", "_scripts", "assets/tailwind", "tailwind.config.js", "assets/webfonts"]) {
+// This personal site owns a namespaced layout, not copies of core components.
+const localTemplates = {
+  _includes: new Set(["profile"]),
+  _layouts: new Set(["profile.liquid", "profile-bib.liquid"]),
+};
+for (const [directory, allowed] of Object.entries(localTemplates)) {
+  if (!exists(directory)) continue;
+  for (const entry of fs.readdirSync(path.join(root, directory))) {
+    if (!allowed.has(entry)) failures.push(`Review unexpected local template: ${directory}/${entry}`);
+  }
+}
+
+for (const forbiddenPath of ["_sass", "_scripts", "assets/tailwind", "tailwind.config.js", "assets/webfonts"]) {
   if (exists(forbiddenPath)) {
     failures.push(`Starter must not own core component path \`${forbiddenPath}\`; move ownership to the corresponding gem.`);
   }
