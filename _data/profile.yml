@@ -30,12 +30,12 @@ education:
     faculty: Faculty of Engineering
 
 research_visits:
-  - institution: DFKI
+  - institution: German Research Center for Artificial Intelligence (DFKI)
     role: Guest Researcher
     dates: Feb–Apr 2026
     group: Smart Data & Knowledge Services
     location: Kaiserslautern, Germany
-  - institution: Georgia Tech
+  - institution: Georgia Institute of Technology
     role: Visiting Research Fellow
     dates: Aug–Sep 2025
     group: Sulchek BioMEMS and Biomechanics Lab

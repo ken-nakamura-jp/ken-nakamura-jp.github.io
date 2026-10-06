@@ -12,7 +12,7 @@
       {{ profile.affiliation | escape }}
     </p>
     <div class="profile-links" aria-label="Contact and profile links">
-      <a class="cv-button" href="{{ profile.cv | relative_url }}">CV (PDF)</a>
+      <a class="cv-button" href="{{ profile.cv | relative_url }}" target="_blank" rel="noopener noreferrer">CV (PDF)</a>
       {% for link in profile.links %}
         {% assign icon_path = 'profile/icons/' | append: link.icon | append: '.liquid' %}
         <a href="{{ link.url | escape }}" aria-label="{{ link.label | escape }}">
