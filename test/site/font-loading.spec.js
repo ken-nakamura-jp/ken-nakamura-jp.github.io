@@ -83,12 +83,15 @@ test.describe("Without JavaScript", () => {
 });
 
 test("font decoding errors reveal readable fallback text", async ({ page }) => {
-  await page.route("**/profile-fonts.css", async (route) => {
+  let corruptedFontResponse = false;
+  await page.route("**/profile-fonts.css*", async (route) => {
+    corruptedFontResponse = true;
     const response = await route.fetch();
     const css = (await response.text()).replace(/data:font\/woff2;base64,[A-Za-z0-9+/=]+/g, "data:font/woff2;base64,AAAA");
     await route.fulfill({ response, body: css });
   });
   await page.goto("/");
+  expect(corruptedFontResponse).toBe(true);
   await expect(page.locator("html")).not.toHaveClass(/fonts-loading/);
   await expect(page.locator("body")).toHaveCSS("visibility", "visible");
   await expect(page.getByRole("heading", { name: "Research Focus" })).toBeVisible();
