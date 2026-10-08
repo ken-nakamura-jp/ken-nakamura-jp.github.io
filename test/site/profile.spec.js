@@ -24,7 +24,7 @@ for (const route of ["/", "/publications/"]) {
     const layout = await page.evaluate(() => ({
       overflow: document.documentElement.scrollWidth > innerWidth,
       sticky: getComputedStyle(document.querySelector(".site-header")).position,
-      font: document.fonts.check('17px "Source Sans 3"'),
+      font: document.fonts.check('17px "Ken Profile Sans"'),
       photo: document.querySelector(".profile-photo").naturalWidth,
       links: [...document.querySelectorAll(".profile-links a")].map((link) => {
         const box = link.getBoundingClientRect();

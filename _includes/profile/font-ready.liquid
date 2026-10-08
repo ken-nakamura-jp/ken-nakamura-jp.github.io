@@ -1,0 +1,12 @@
+<script>
+  // Font data is already in the blocking stylesheet; only local decoding remains.
+  // Keep the page readable if scripting or the Font Loading API is unavailable.
+  if (document.fonts) {
+    const profileFonts = Array.from(document.fonts).filter((font) => font.family.replaceAll('"', '') === 'Ken Profile Sans');
+    if (profileFonts.length) {
+      document.documentElement.classList.add('fonts-loading');
+      const revealPage = () => document.documentElement.classList.remove('fonts-loading');
+      Promise.all(profileFonts.map((font) => font.load())).then(revealPage, revealPage);
+    }
+  }
+</script>

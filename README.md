@@ -2,7 +2,7 @@
 
 Personal research website: <https://ken-nakamura-jp.github.io>.
 
-The Home and Publications pages share a responsive Source Sans 3 layout. Navigation stays at the top while scrolling. Fonts, icons, portrait, and CVs are hosted locally; the profile pages require no JavaScript or external font/icon services. Dark mode follows the visitor’s system preference.
+The Home and Publications pages share a responsive Source Sans 3 layout. Navigation stays at the top while scrolling. Fonts, icons, portrait, and CVs are hosted locally; content and navigation work without JavaScript or external font/icon services. A small progressive enhancement waits for the embedded fonts to decode before the first paint. Dark mode follows the visitor’s system preference.
 
 ## Updating content
 
@@ -24,7 +24,20 @@ Build the CVs from the separate LaTeX CV project, then copy both PDFs here. This
 - `_layouts/profile.liquid`: document head, shared page shell, footer.
 - `_includes/profile/`: header, profile links, Home sections, local SVG icons.
 - `assets/css/profile.css`: colors, typography, spacing, responsive layout, print styles.
-- `assets/fonts/source-sans-3/`: full regular, semibold, and italic WOFF fonts and OFL license, converted from Adobe Source Sans 3 distributed with TeX Live 2026.
+- `assets/css/profile-fonts.css`: generated WOFF2 font subsets embedded in a blocking stylesheet. This keeps the selected typography from the first text paint, without a separate font download or a loading screen.
+- `bin/fonts/source-sans-3/`: original Source Sans 3 WOFF inputs and OFL license (excluded from the published site).
+- `assets/fonts/source-sans-3/LICENSE.txt`: public font license.
+
+The subsets cover basic Latin, Latin-1 accented characters, and common punctuation used by the English site. They are internally renamed **Ken Profile Sans** to respect the font license; their appearance is unchanged. Other scripts use the system fallback. To expand character coverage, edit `RANGES` in `bin/build_profile_fonts.py`, then regenerate and commit `profile-fonts.css`:
+
+```sh
+python3 -m venv /tmp/profile-font-build
+/tmp/profile-font-build/bin/pip install -r bin/fonts/requirements.txt
+/tmp/profile-font-build/bin/python bin/build_profile_fonts.py
+```
+
+Normal content updates and deployment do not require this Python toolchain. The small `_includes/profile/font-ready.liquid` enhancement waits for local font decoding before revealing the page, including on slower CPUs. It reveals the page on font errors too, and the default no-JavaScript layout stays visible. Keep both font and page stylesheets as ordinary blocking `<link rel="stylesheet">` elements. Reintroducing external font requests with `font-display: swap` causes visible text resizing on a cold load.
+
 - `_pages/about.md`, `_pages/publications.md`, `_pages/404.md`: page routes and short entry points.
 
 These are site-specific templates with distinct names, so they do not shadow al-folio gem templates. Keep theme upgrades separate from content edits. The remaining excluded starter examples and cross-plugin tests belong to the upstream al-folio scaffold; see [ownership boundaries](docs/BOUNDARIES.md) before changing shared runtime behavior.

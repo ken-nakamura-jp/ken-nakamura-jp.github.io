@@ -15,8 +15,9 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ page.url | absolute_url }}">
     <meta property="og:image" content="{{ site.data.profile.portrait | absolute_url }}">
-    <link rel="preload" href="{{ '/assets/fonts/source-sans-3/SourceSans3-Regular.woff' | relative_url }}" as="font" type="font/woff" crossorigin>
+    <link rel="stylesheet" href="{{ '/assets/css/profile-fonts.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/profile.css' | relative_url }}">
+    {% include profile/font-ready.liquid %}
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
