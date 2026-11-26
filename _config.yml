@@ -8,7 +8,7 @@ middle_name:
 last_name: Nakamura
 contact_note:
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Ken Nakamura, undergraduate researcher at The University of Tokyo. Research on the mathematical foundations of human cognition and how autonomous intelligence arises.
+  Ken Nakamura, undergraduate researcher at The University of Tokyo. Research on the mathematical foundations of human cognition and internal representations in biological and artificial neural systems.
 footer_text:
 keywords: # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)

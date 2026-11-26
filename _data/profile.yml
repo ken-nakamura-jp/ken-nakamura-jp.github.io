@@ -21,11 +21,12 @@ links:
 
 research_focus:
   - >-
-    My research explores the mathematical foundations of human cognition, with a particular interest in how
-    autonomous intelligence arises. By comparing how biological and artificial neural systems represent and
-    process information, I aim to uncover general computational principles that can provide a unified account of
-    cognition.
-  - My broader goal is to advance both neuroscience and AI, with insights from each informing the other.
+    My research focuses on the mathematical foundations of human cognition, with a particular interest in
+    internal representations. By comparing information processing in both biological and artificial neural
+    systems, I aim to identify computational principles that provide a unified view of cognition.
+  - >-
+    Ultimately, I seek to understand the brain through computational modeling and advance artificial
+    intelligence through insights from neuroscience.
 
 education:
   - institution: The University of Tokyo
