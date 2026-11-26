@@ -20,8 +20,12 @@ links:
     url: https://www.linkedin.com/in/ken-nakamura-jp/
 
 research_focus:
-  - I study how artificial neural networks and biological brains acquire and organize internal representations through learning.
-  - I seek to understand what makes these representations efficient and robust for specific problems, and how the brain’s dynamic information-processing mechanisms can inform computational architectures.
+  - >-
+    My research explores the mathematical foundations of human cognition, with a particular interest in how
+    autonomous intelligence arises. By comparing how biological and artificial neural systems represent and
+    process information, I aim to uncover general computational principles that can provide a unified account of
+    cognition. My broader goal is to advance both neuroscience and AI, with insights from each informing the
+    other.
 
 education:
   - institution: The University of Tokyo

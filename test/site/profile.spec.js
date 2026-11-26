@@ -53,7 +53,7 @@ for (const route of ["/", "/publications/"]) {
       await expect(page.locator("#asanuma2025correspondence")).toContainText("Scientific Reports, 15, 32175.");
     } else {
       await expect(page.locator("main h2")).toHaveText(["Research Focus", "Education", "Research Visits", "Honors & Fellowships"]);
-      await expect(page.locator("main")).toContainText("dynamic information-processing mechanisms");
+      await expect(page.locator("main")).toContainText("mathematical foundations of human cognition");
     }
     await page.screenshot({ path: testInfo.outputPath("page.png"), fullPage: true });
     await page.evaluate(() => window.scrollTo(0, 400));
